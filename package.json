@@ -9,19 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@inertiajs/inertia-react": "^0.8.1",
+    "@types/next-auth": "^3.15.0",
+    "@types/vue": "^2.0.0",
+    "next": "14.1.0",
+    "next-auth": "^4.24.6",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.0"
+    "swr": "^2.2.5",
+    "vue": "^3.4.19"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0"
+    "typescript": "^5"
   }
 }
