@@ -29,7 +29,8 @@ function PlayerList() {
   const [users, setUsersData] = useState<UserData[]>([])
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/v1/players')
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL // Obtiene la URL
+    fetch(`${apiUrl}/players`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok')
@@ -46,7 +47,8 @@ function PlayerList() {
   }, [])
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/v1/users')
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL // Obtiene la URL
+    fetch(`${apiUrl}/users`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok')
@@ -64,7 +66,7 @@ function PlayerList() {
 
   return (
     <div
-      className='grid place-items-center p-5 lg:p-8 bg-white border-b border-gray-200'
+      className='grid place-items-center m-5 p-5 lg:p-8 bg-white border-b border-gray-200 rounded-3xl'
       style={{ maxHeight: '400px', overflowY: 'auto' }}
     >
       <ul role='list' className='divide-y divide-gray-200'>

@@ -13,7 +13,8 @@ function TitleBar() {
   const [data, setData] = useState<EditionData[]>([])
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/api/v1/edition')
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL // Obtiene la URL
+    fetch(`${apiUrl}/edition`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Network response was not ok')
@@ -30,7 +31,7 @@ function TitleBar() {
   }, [])
 
   return (
-    <div className='w-full p-5 flex items-center justify-center text-s text-slate-300 lg:flex'>
+    <div className='w-full p-5 flex items-center justify-center lg:flex'>
       <Image
         className='relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] border border-none rounded-full bg-white mr-5'
         src='/tostonet.svg'
@@ -40,7 +41,8 @@ function TitleBar() {
         priority
       />
       <h1 className='mb-3 text-5xl font-extrabold text-center'>
-        TOSTONS BOWL {data && data.length > 0 && data[0].year} < br/> {data && data.length > 0 && data[0].name} {'Edition'}
+        TOSTONS BOWL {data && data.length > 0 && data[0].year} <br />{' '}
+        {data && data.length > 0 && data[0].name} {'Edition'}
       </h1>
     </div>
   )
