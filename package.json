@@ -11,13 +11,11 @@
   "dependencies": {
     "@inertiajs/inertia-react": "^0.8.1",
     "@types/next-auth": "^3.15.0",
-    "@types/vue": "^2.0.0",
     "next": "14.1.0",
     "next-auth": "^4.24.6",
     "react": "^18",
     "react-dom": "^18",
-    "swr": "^2.2.5",
-    "vue": "^3.4.19"
+    "swr": "^2.2.5"
   },
   "devDependencies": {
     "@types/node": "^20",
