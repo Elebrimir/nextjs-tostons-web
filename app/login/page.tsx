@@ -12,7 +12,7 @@ const LoginPage = () => {
     e.preventDefault()
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL // Obtiene la URL base de la API desde la variable de entorno
-      const response = await fetch(`${apiUrl}/login`, {
+      const response = await fetch(`http://127.0.0.1:8000/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ const LoginPage = () => {
       // Manejar la respuesta
       if (response.ok) {
         // Si el login es exitoso, redireccionar a la página de inicio
-        window.location.href = '/' // Cambia por la ruta deseada
+        window.location.href = '/dashboard' // Cambia por la ruta deseada
       } else {
         // Si la respuesta no es OK, manejar el error
         throw new Error(
@@ -108,7 +108,7 @@ const LoginPage = () => {
               <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
                 ¿Aún no tienes una cuenta?{' '}
                 <a
-                  href='#'
+                  href=''
                   className='font-medium text-primary-600 hover:underline dark:text-primary-500'
                 >
                   Regístrate

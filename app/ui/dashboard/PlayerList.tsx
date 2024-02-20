@@ -64,6 +64,29 @@ function PlayerList() {
       })
   }, [])
 
+  const handleDeleteUser = (userId: number) => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL
+    fetch(`${apiUrl}/users/${userId}`, {
+      method: 'DELETE'
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        return response.json()
+      })
+      .then(() => {
+        // Actualizar la lista de jugadores después de eliminar el usuario
+        setUsersData((prevUsers) =>
+          prevUsers.filter((user) => user.id !== userId)
+        )
+      })
+      .catch((error) => {
+        // Manejar el error
+        console.error('Delete user error:', error)
+      })
+  }
+
   return (
     <div
       className='grid place-items-center m-5 p-5 lg:p-8 bg-white border-b border-gray-200 rounded-3xl'
